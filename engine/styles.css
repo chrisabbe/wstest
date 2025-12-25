@@ -1,0 +1,184 @@
+:root{
+  --teal:#008080;
+  --teal-dark:#006a6a;
+  --gold:#d8c178;
+  --gold-soft:#efe4b4;
+  --bg:#f5f6f7;
+  --panel:#ffffff;
+  --ink:#1e1e1e;
+  --muted:#6b6b6b;
+  --line:#b9b9b9;
+  --gap:2px;
+}
+
+html, body{
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  overflow-x:hidden;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+}
+
+header{
+  background:var(--teal);
+  color:#fff;
+  padding:14px 8px;
+  text-align:center;
+  border-bottom:3px solid var(--teal-dark);
+}
+header h1{
+  margin:0;
+  font-size:22px;
+  letter-spacing:.4px;
+}
+header h2{
+  margin:4px 0 0;
+  font-size:15px;
+  font-weight:600;
+}
+
+.wrap{
+  max-width:980px;
+  margin:0 auto;
+  padding:10px;
+}
+
+.subtitle{
+  text-align:center;
+  color:var(--muted);
+  font-size:13px;
+  font-style:italic;
+  margin:8px 0 14px;
+}
+
+.panel{
+  background:var(--panel);
+  border:1px solid #e2e2e2;
+  border-radius:14px;
+  padding:12px;
+  box-shadow:0 2px 8px rgba(0,0,0,.04);
+}
+
+/* ===== PUZZLE LAYOUT ===== */
+
+.layout{
+  display:grid;
+  grid-template-columns:1fr 220px;
+  gap:10px;
+}
+@media (max-width:760px){
+  .layout{
+    grid-template-columns:1fr;
+  }
+}
+
+/* ===== GRID (ANDROID-SAFE) ===== */
+
+.gridOuter{
+  width:100%;
+  padding-bottom:14px;        /* ⭐ prevents Android hit-test overlap */
+}
+
+.grid{
+  display:grid;
+  gap:var(--gap);
+  width:100%;
+  margin:0 auto;              /* ⭐ centers grid on Android */
+  user-select:none;
+  -webkit-user-select:none;
+  touch-action:none;
+}
+
+/* Square cell using padding technique (Chrome-safe) */
+.cell{
+  position:relative;
+  width:100%;
+  padding-top:100%;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:6px;
+  font-weight:800;
+  font-size:clamp(14px,3.2vw,22px);
+  line-height:1;
+}
+
+/* Letter centered inside square */
+.cell::after{
+  content:attr(data-letter);
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.cell.prefound{
+  background:var(--gold-soft);
+  border-color:#b7a25a;
+}
+
+.cell.preview{
+  background:#cfeeee;
+  border-color:#6aa;
+}
+
+/* ===== WORD LIST ===== */
+
+.words h3{
+  margin:0 0 6px;
+  color:var(--teal);
+  font-size:16px;
+}
+
+.word{
+  padding:4px;
+  font-weight:700;
+  letter-spacing:.4px;
+  border-radius:6px;
+  font-size:14px;
+}
+
+.word.found{
+  background:var(--gold-soft);
+  text-decoration:line-through;
+  color:#444;
+}
+
+/* ===== CONTROLS ===== */
+
+.controls{
+  margin-top:12px;
+  text-align:center;
+}
+
+.btn{
+  background:#fff;
+  color:var(--teal);
+  border:1px solid var(--teal);
+  padding:9px 14px;
+  border-radius:10px;
+  font-weight:700;
+  font-size:14px;
+}
+
+/* ===== TOAST ===== */
+
+.toast{
+  position:fixed;
+  left:50%;
+  transform:translateX(-50%);
+  bottom:16px;
+  background:var(--teal);
+  color:#fff;
+  padding:8px 12px;
+  border-radius:10px;
+  font-size:13px;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .25s;
+  z-index:99;
+}
+.toast.show{ opacity:1; }
