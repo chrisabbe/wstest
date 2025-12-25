@@ -94,7 +94,7 @@ header h2{
 
 /* Square cell using padding technique (Chrome-safe) */
 .cell{
-  aspect-ratio:0/1;
+  
   position:relative;
   width:100%;
   display:flex;
