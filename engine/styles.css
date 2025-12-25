@@ -96,6 +96,9 @@ header h2{
 .cell{
   position:relative;
   width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   padding-top:100%;
   background:#fff;
   border:1px solid var(--line);
