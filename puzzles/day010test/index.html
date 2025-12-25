@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html><head>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="../../engine/styles.css"></head>
+<body>
+<header><h1>Daily Word Search</h1><h2></h2></header>
+<div class="wrap">
+<div class="subtitle">“Tap or drag across letters to find all hidden words. Your progress is saved automatically.”</div>
+<div class="panel layout">
+<div class="gridOuter"><div class="gridScale"><div id="grid" class="grid"></div></div></div>
+<div><h3>Words</h3><div id="wordList"></div></div>
+</div>
+<div class="controls"><button id="clearBtn" class="btn">Clear</button></div>
+</div>
+<div id="toast" class="toast"></div>
+<script>
+/* ========= CONFIG ========= */
+window.PUZZLE_CONFIG = {
+  title: "Daily Word Search",
+  subtitle: "Rainy Afternoon",
+
+  gridRows: 17,
+  gridCols: 17,
+
+  seed: 195760,
+ 
+  words: [
+"RAIN","CLOUD","COZY","WINDOW","BOOK",
+"TEA","BLANKET","STORM","UMBRELLA",
+"DRIZZLE","QUIET","SOFA","WARM","LIGHT","REST"
+  ]
+};
+</script>
+<script src="../../engine/engine.js"></script>
+</body></html>
