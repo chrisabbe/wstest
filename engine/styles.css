@@ -17,6 +17,7 @@ html, body{
   background:var(--bg);
   color:var(--ink);
   font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  height: auto;
   overflow-x:hidden;
   overflow-y:auto;
   -webkit-overflow-scrolling:touch;
@@ -89,7 +90,7 @@ header h2{
   margin:0 auto;              /* ⭐ centers grid on Android */
   user-select:none;
   -webkit-user-select:none;
-  touch-action:none;
+  touch-action: pan-y manipulation;
 }
 
 /* Square cell using padding technique (Chrome-safe) */
