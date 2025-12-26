@@ -90,7 +90,7 @@ header h2{
   margin:0 auto;              /* ⭐ centers grid on Android */
   user-select:none;
   -webkit-user-select:none;
-  touch-action: none
+  touch-action: manipulation
 }
 
 /* Square cell using padding technique (Chrome-safe) */
